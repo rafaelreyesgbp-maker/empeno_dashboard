@@ -27,12 +27,12 @@ MONTH_LABELS = {
     7:"Julio",8:"Agosto",9:"Septiembre",10:"Octubre",11:"Noviembre",12:"Diciembre",
 }
 
-# Columnas base-0: RFC=A(0), Contrib=B(1), Periodo=E(4), Rec=N(13)-I(8)
+# Columnas base-0: RFC=A(0), Contrib=B(1), Periodo=E(4), Rec=G(6)+M(12)
 RFC_COL     = 0
 CONTRIB_COL = 1
 PERIODO_COL = 4
-REC_N_COL   = 13
-REC_I_COL   = 8
+REC_G_COL   = 6
+REC_M_COL   = 12
 
 
 # ── Google Drive ───────────────────────────────────────────────────────────────
@@ -106,7 +106,7 @@ def _parse_xls(content):
     rec_sum = 0.0
     for i in range(start, len(rows)):
         row = rows[i]
-        max_col = max(RFC_COL, CONTRIB_COL, PERIODO_COL, REC_N_COL, REC_I_COL)
+        max_col = max(RFC_COL, CONTRIB_COL, PERIODO_COL, REC_G_COL, REC_M_COL)
         if len(row) <= max_col:
             continue
 
@@ -122,13 +122,13 @@ def _parse_xls(content):
         if len(p) != 6:
             continue  # Serial de fecha Excel u otro formato incorrecto
 
-        # Recaudacion: N - I
+        # Recaudacion: G + M
         try:
-            n_val = float(row[REC_N_COL]) if row[REC_N_COL] != "" else 0.0
-            i_val = float(row[REC_I_COL]) if row[REC_I_COL] != "" else 0.0
+            g_val = float(row[REC_G_COL]) if row[REC_G_COL] != "" else 0.0
+            m_val = float(row[REC_M_COL]) if row[REC_M_COL] != "" else 0.0
         except (ValueError, TypeError):
-            n_val, i_val = 0.0, 0.0
-        rec = n_val - i_val
+            g_val, m_val = 0.0, 0.0
+        rec = g_val + m_val
 
         contrib = str(row[CONTRIB_COL]).strip()
         out.append({"rfc": rfc, "periodo": p, "recaudacion": rec, "contrib": contrib})
