@@ -149,8 +149,8 @@ tfoot td { font-weight: 700; font-size: 13px; border-top: 2px solid #ddd; }
         <option value="">Todos los segmentos</option>
         <option value="alta">Alta</option>
         <option value="media">Media</option>
+        <option value="baja">Baja</option>
         <option value="seguimiento">Seguimiento</option>
-        <option value="omisos_totales">Omisos Totales</option>
       </select>
       <button class="btn-export-tbl" onclick="exportExcel()">&#8595; Exportar Excel</button>
     </div>
@@ -188,13 +188,13 @@ const MONTH_LABELS = {
   7:"Julio",8:"Agosto",9:"Septiembre",10:"Octubre",11:"Noviembre",12:"Diciembre"
 };
 
-let allData = {"1": {"mes_label": "Enero", "mes_num": 1, "meta": 58989, "dominant_period": 202512, "ref_months": [], "acumulado_real": 93776, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 93776, "meta_cruzada": true, "pct_acumulado": 158.9720117310007, "pct_proyeccion": 158.9720117310007, "segmentos": {}, "omisos": []}, "2": {"mes_label": "Febrero", "mes_num": 2, "meta": 58989, "dominant_period": 202601, "ref_months": [1], "acumulado_real": 66116, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 66116, "meta_cruzada": true, "pct_acumulado": 112.0819135771076, "pct_proyeccion": 112.0819135771076, "segmentos": {}, "omisos": []}, "3": {"mes_label": "Marzo", "mes_num": 3, "meta": 58989, "dominant_period": 202602, "ref_months": [1, 2], "acumulado_real": 73146, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 73146, "meta_cruzada": true, "pct_acumulado": 123.99938971672684, "pct_proyeccion": 123.99938971672684, "segmentos": {}, "omisos": []}, "4": {"mes_label": "Abril", "mes_num": 4, "meta": 58989, "dominant_period": 202603, "ref_months": [1, 2, 3], "acumulado_real": 76896, "total_omisos": 2, "total_esperado": 0, "proyeccion_cierre": 76896, "meta_cruzada": true, "pct_acumulado": 130.3565071454, "pct_proyeccion": 130.3565071454, "segmentos": {"alta": {"count": 2, "monto": 0, "omisos": [{"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "avg": 0, "count": 3, "nMissing": 1, "pending": ["Mar-26"]}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "avg": 0, "count": 3, "nMissing": 1, "pending": ["Mar-26"]}]}}, "omisos": [{"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "count": 3, "avg": 0, "nMissing": 1, "pending": ["Mar-26"], "seg": "alta"}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "count": 3, "avg": 0, "nMissing": 1, "pending": ["Mar-26"], "seg": "alta"}]}, "5": {"mes_label": "Mayo", "mes_num": 5, "meta": 58989, "dominant_period": 202604, "ref_months": [1, 2, 3, 4], "acumulado_real": 69874, "total_omisos": 4, "total_esperado": 50, "proyeccion_cierre": 69924, "meta_cruzada": true, "pct_acumulado": 118.45259285629524, "pct_proyeccion": 118.53735442201088, "segmentos": {"media": {"count": 2, "monto": 50, "omisos": [{"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "avg": 32, "count": 3, "nMissing": 1, "pending": ["Abr-26"]}, {"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "avg": 18, "count": 3, "nMissing": 1, "pending": ["Abr-26"]}]}, "seguimiento": {"count": 2, "monto": 0, "omisos": [{"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "avg": 0, "count": 1, "nMissing": 1, "pending": ["Abr-26"]}, {"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "avg": 0, "count": 2, "nMissing": 1, "pending": ["Abr-26"]}]}}, "omisos": [{"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "count": 3, "avg": 32, "nMissing": 1, "pending": ["Abr-26"], "seg": "media"}, {"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "count": 3, "avg": 18, "nMissing": 1, "pending": ["Abr-26"], "seg": "media"}, {"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "count": 1, "avg": 0, "nMissing": 1, "pending": ["Abr-26"], "seg": "seguimiento"}, {"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "count": 2, "avg": 0, "nMissing": 1, "pending": ["Abr-26"], "seg": "seguimiento"}]}, "6": {"mes_label": "Junio", "mes_num": 6, "meta": 58989, "dominant_period": 202605, "ref_months": [2, 3, 4, 5], "acumulado_real": 73245, "total_omisos": 5, "total_esperado": 997, "proyeccion_cierre": 74242, "meta_cruzada": true, "pct_acumulado": 124.16721761684381, "pct_proyeccion": 125.85736323721373, "segmentos": {"media": {"count": 3, "monto": 997, "omisos": [{"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "avg": 997, "count": 3, "nMissing": 1, "pending": ["May-26"]}, {"rfc": "MUME501107A77", "contrib": "MARIA ELIZABETH MUÑOZ MONTERO", "avg": 0, "count": 3, "nMissing": 1, "pending": ["May-26"]}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "avg": 0, "count": 3, "nMissing": 1, "pending": ["May-26"]}]}, "seguimiento": {"count": 1, "monto": 0, "omisos": [{"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "avg": 0, "count": 2, "nMissing": 2, "pending": ["May-26", "Abr-26"]}]}, "alta": {"count": 1, "monto": 0, "omisos": [{"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "avg": 0, "count": 4, "nMissing": 1, "pending": ["May-26"]}]}}, "omisos": [{"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "count": 3, "avg": 997, "nMissing": 1, "pending": ["May-26"], "seg": "media"}, {"rfc": "MUME501107A77", "contrib": "MARIA ELIZABETH MUÑOZ MONTERO", "count": 3, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "media"}, {"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "count": 2, "avg": 0, "nMissing": 2, "pending": ["May-26", "Abr-26"], "seg": "seguimiento"}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "count": 3, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "media"}, {"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "count": 4, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "alta"}]}};
-var lastUpdated = '02/07/2026 23:44';
+let allData = {};
+var lastUpdated = '';
 const PREV_YEAR_TOTALS = [95691,65387,47175,66063,57193,63515,60756,65347,57719,67957,70465,74638];
 let currentMonth=null, allOmisos=[], currentPage=1;
 const PAGE_SIZE=50;
 let sortCol='seg', sortDir=1;
-const SEG_ORDER={alta:1,media:2,seguimiento:3,omisos_totales:4};
+const SEG_ORDER={alta:1,media:2,baja:3,seguimiento:4};
 
 function sortRows(rows){
   return [...rows].sort((a,b)=>{
@@ -214,6 +214,9 @@ function normalizeStr(s){return(s||'').normalize('NFD').replace(/[̀-ͯ]/g,'').t
 
 function prevPeriod(p){p=String(p);let y=parseInt(p.slice(0,4)),m=parseInt(p.slice(4));m--;if(m===0){m=12;y--;}return y+String(m).padStart(2,'0');}
 function formatPeriod(p){const s=String(p);const L=['','Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];try{return L[parseInt(s.slice(4,6))]+'-'+s.slice(2,4);}catch(e){return s;}}
+function isValidRFC(rfc){return/^[A-ZÑ&]{3,4}[0-9]{6}[A-Z0-9]{3}$/.test(rfc);}
+function getExpectedPeriod(monthNum){if(monthNum<=1)return'202512';return'2026'+String(monthNum-1).padStart(2,'0');}
+function median(arr){const s=[...arr].sort((a,b)=>a-b);const m=Math.floor(s.length/2);return s.length%2===0?(s[m-1]+s[m])/2:s[m];}
 
 async function driveListFiles(){const r=await fetch('https://www.googleapis.com/drive/v3/files?q=%27'+FOLDER_ID+'%27+in+parents+and+trashed%3Dfalse&fields=files(id,name,mimeType)&pageSize=40&key='+API_KEY);if(!r.ok)throw new Error('Drive list: '+r.status);return(await r.json()).files||[];}
 async function driveDownload(id){const r=await fetch('https://www.googleapis.com/drive/v3/files/'+id+'?alt=media&key='+API_KEY);if(!r.ok)throw new Error('Drive dl: '+r.status);return await r.arrayBuffer();}
@@ -247,46 +250,83 @@ function _parseWorkbook(buf){
   return _parseEmpeno(rows);
 }
 
-function getDominant(records){const t={};for(const r of records)if(r.periodo)t[r.periodo]=(t[r.periodo]||0)+r.recaudacion;const k=Object.keys(t);if(!k.length)return null;return k.reduce((a,b)=>t[a]>t[b]?a:b);}
-function getMissingPeriods(paidSet,dominant,maxBack,stopBefore){const out=[];let p=String(dominant);while(!paidSet.has(p)){if(stopBefore&&parseInt(p)<parseInt(stopBefore))break;out.push(p);p=prevPeriod(p);if(out.length>=maxBack)break;}return out;}
-
 function computeMonth(monthNum,allMonthData){
   const cur=allMonthData[monthNum]||[];
-  const dominant=getDominant(cur);
+  const expPeriodo=getExpectedPeriod(monthNum);
   const acumulado=cur.reduce((s,r)=>s+r.recaudacion,0);
-  const refMonths=[];for(let m=Math.max(1,monthNum-4);m<monthNum;m++)if(allMonthData[m]&&allMonthData[m].length)refMonths.push(m);
-  const nRef=refMonths.length;
-  const globalPeriods={},globalContrib={};
-  for(let m=1;m<=monthNum;m++)for(const r of allMonthData[m]||[]){if(!globalPeriods[r.rfc])globalPeriods[r.rfc]={};const gp=globalPeriods[r.rfc];if(!gp[r.periodo]||r.recaudacion>gp[r.periodo])gp[r.periodo]=r.recaudacion;if(!globalContrib[r.rfc]&&r.contrib)globalContrib[r.rfc]=r.contrib;}
-  const rfcRefCount={},rfcRefPeriods={},rfcContrib={},paid2026InRef={};
-  for(const rm of refMonths){const seen=new Set();for(const r of allMonthData[rm]||[]){if(!rfcRefPeriods[r.rfc])rfcRefPeriods[r.rfc]={};const rp=rfcRefPeriods[r.rfc];if(!rp[r.periodo]||r.recaudacion>rp[r.periodo])rp[r.periodo]=r.recaudacion;if(String(r.periodo).startsWith('2026')){if(!paid2026InRef[r.rfc])paid2026InRef[r.rfc]=new Set();paid2026InRef[r.rfc].add(String(r.periodo));}if(!seen.has(r.rfc)){seen.add(r.rfc);rfcRefCount[r.rfc]=(rfcRefCount[r.rfc]||0)+1;}if(!rfcContrib[r.rfc]&&r.contrib)rfcContrib[r.rfc]=r.contrib;}}
-  const candidates=new Set();
-  for(const[rfc,cnt]of Object.entries(rfcRefCount))if(cnt>=2)candidates.add(rfc);
-  for(const[rfc,ps]of Object.entries(paid2026InRef))if(ps.size>=2)candidates.add(rfc);
+
+  // Meses anteriores con datos
+  const prevMonths=[];
+  for(let m=1;m<monthNum;m++)if(allMonthData[m]&&allMonthData[m].length)prevMonths.push(m);
+  const n_prev=prevMonths.length;
+
+  // Por cada RFC: contar meses distintos pagados y totales mensuales (solo RFC válidos)
+  const rfcMonthCount={},rfcMonthAmounts={},rfcContrib={};
+  for(const m of prevMonths){
+    const rfcTotal={};
+    for(const r of allMonthData[m]||[]){
+      if(!isValidRFC(r.rfc))continue;
+      rfcTotal[r.rfc]=(rfcTotal[r.rfc]||0)+r.recaudacion;
+      if(!rfcContrib[r.rfc]&&r.contrib)rfcContrib[r.rfc]=r.contrib;
+    }
+    for(const[rfc,total]of Object.entries(rfcTotal)){
+      rfcMonthCount[rfc]=(rfcMonthCount[rfc]||0)+1;
+      if(!rfcMonthAmounts[rfc])rfcMonthAmounts[rfc]={};
+      rfcMonthAmounts[rfc][m]=total;
+    }
+  }
+
+  // Candidatos: >= 2 meses pagados
+  const candidates=new Set(Object.keys(rfcMonthCount).filter(rfc=>rfcMonthCount[rfc]>=2));
+
+  // RFCs que ya pagaron este mes
+  const paidThisMonth=new Set(cur.map(r=>r.rfc));
+
+  // Periodos pagados globalmente (meses anteriores)
+  const globalPeriods={};
+  for(let m=1;m<monthNum;m++)for(const r of allMonthData[m]||[]){
+    if(!globalPeriods[r.rfc])globalPeriods[r.rfc]=new Set();
+    globalPeriods[r.rfc].add(r.periodo);
+  }
+
   const omisos=[];
   for(const rfc of candidates){
-    const cnt=rfcRefCount[rfc]||0,p26=paid2026InRef[rfc]||new Set();
-    if(cnt<2&&p26.size<2)continue;
-    const paidSet=new Set(Object.keys(globalPeriods[rfc]||{}));
-    if(!dominant||paidSet.has(dominant))continue;
-    const has2026=[...paidSet].some(p=>p.startsWith('2026'));
-    const missing=has2026?getMissingPeriods(paidSet,dominant,12,null):getMissingPeriods(paidSet,dominant,12,'202601');
-    if(!missing.length)continue;
-    const refAmounts=Object.values(rfcRefPeriods[rfc]||{});if(!refAmounts.length)continue;
-    const avg=refAmounts.reduce((s,v)=>s+v,0)/refAmounts.length;
-    const seg=!has2026?'omisos_totales':cnt>=nRef?'alta':cnt>=3?'media':'seguimiento';
-    omisos.push({rfc,contrib:rfcContrib[rfc]||globalContrib[rfc]||'',count:cnt,avg:Math.round(avg*missing.length),nMissing:missing.length,pending:missing.map(formatPeriod),seg});
+    if(paidThisMonth.has(rfc))continue;
+
+    // Periodos pendientes: retroceder desde expPeriodo
+    const paidPeriods=globalPeriods[rfc]||new Set();
+    let missing=[],p=expPeriodo;
+    while(!paidPeriods.has(p)){missing.push(p);p=prevPeriod(p);if(missing.length>=12)break;}
+    if(!missing.length)missing=[expPeriodo];
+
+    // Mediana de importes mensuales (no promedio — enero puede inflar)
+    const amounts=Object.values(rfcMonthAmounts[rfc]||{});
+    if(!amounts.length)continue;
+    const med=median(amounts);
+    const cnt=rfcMonthCount[rfc]||0;
+
+    // Segmentación proporcional a n_prev
+    let seg;
+    if(cnt===n_prev)seg='alta';
+    else if(cnt>=Math.floor(n_prev*0.75))seg='media';
+    else if(cnt>=3)seg='baja';
+    else seg='seguimiento';
+
+    omisos.push({rfc,contrib:rfcContrib[rfc]||'',count:cnt,avg:Math.round(med*missing.length),nMissing:missing.length,pending:missing.map(formatPeriod),seg});
   }
   omisos.sort((a,b)=>b.avg-a.avg);
+
   const esperado=omisos.filter(o=>o.seg==='alta'||o.seg==='media').reduce((s,o)=>s+o.avg,0);
   const proyeccion=acumulado+esperado,meta=METAS[monthNum]||0;
+
   const segments={};
   for(const o of omisos){if(!segments[o.seg])segments[o.seg]={count:0,monto:0,omisos:[]};segments[o.seg].count++;segments[o.seg].monto+=o.avg;segments[o.seg].omisos.push({rfc:o.rfc,contrib:o.contrib,avg:o.avg,count:o.count,nMissing:o.nMissing,pending:o.pending});}
   for(const s of Object.values(segments)){s.monto=Math.round(s.monto);s.omisos.sort((a,b)=>b.avg-a.avg);}
-  return{mes_label:MONTH_LABELS[monthNum]||String(monthNum),mes_num:monthNum,meta,dominant_period:dominant?parseInt(dominant):0,ref_months:refMonths,acumulado_real:Math.round(acumulado),total_omisos:omisos.length,total_esperado:Math.round(esperado),proyeccion_cierre:Math.round(proyeccion),meta_cruzada:proyeccion>=meta,pct_acumulado:meta?acumulado/meta*100:0,pct_proyeccion:meta?proyeccion/meta*100:0,segmentos:segments,omisos:omisos.slice(0,5000)};
+
+  return{mes_label:MONTH_LABELS[monthNum]||String(monthNum),mes_num:monthNum,meta,dominant_period:parseInt(expPeriodo),ref_months:prevMonths,acumulado_real:Math.round(acumulado),total_omisos:omisos.length,total_esperado:Math.round(esperado),proyeccion_cierre:Math.round(proyeccion),meta_cruzada:proyeccion>=meta,pct_acumulado:meta?acumulado/meta*100:0,pct_proyeccion:meta?proyeccion/meta*100:0,segmentos:segments,omisos:omisos.slice(0,5000)};
 }
 
-const SEG_CONFIG={alta:{label:'Alta',color:'#8B1A2E',bg:'#FFF0F2'},media:{label:'Media',color:'#C9A84C',bg:'#FFFBF0'},seguimiento:{label:'Seguimiento',color:'#1D9E75',bg:'#F0FBF7'},omisos_totales:{label:'Omisos Totales',color:'#666666',bg:'#F5F5F5'}};
+const SEG_CONFIG={alta:{label:'Alta',color:'#8B1A2E',bg:'#FFF0F2'},media:{label:'Media',color:'#C9A84C',bg:'#FFFBF0'},baja:{label:'Baja',color:'#5C6BC0',bg:'#F0F1FB'},seguimiento:{label:'Seguimiento',color:'#1D9E75',bg:'#F0FBF7'}};
 
 function renderDash(data){
   if(!data)return;
@@ -408,7 +448,7 @@ function renderDash(data){
         '<span style="color:#0D1B3E;font-weight:700">= '+fmtK(proyeccionAltaMedia)+'</span>'+
       '</div>'+
     '</div>';
-  if(data.dominant_period)document.getElementById('periodDominant').textContent='Periodo dominante: '+formatPeriod(data.dominant_period)+' – Meses de referencia: '+(data.ref_months?data.ref_months.length:0);
+  if(data.dominant_period)document.getElementById('periodDominant').textContent='Periodo esperado: '+formatPeriod(data.dominant_period)+' – Meses anteriores con datos: '+(data.ref_months?data.ref_months.length:0);
   // Segmentos
   const sg=document.getElementById('segGrid');sg.innerHTML='';
   for(const[key,cfg]of Object.entries(SEG_CONFIG)){const s=(data.segmentos||{})[key];const card=document.createElement('div');card.className='seg-card';card.style.background=cfg.bg;card.style.borderColor=cfg.color;card.innerHTML='<div class="seg-badge" style="background:'+cfg.color+'">'+cfg.label+'</div><div class="seg-name">'+cfg.label+'</div><div class="seg-count">'+(s?s.count:0)+' contribuyentes</div><div class="seg-monto" style="color:'+cfg.color+'">'+(s?fmtK(s.monto):'$0')+'</div>';sg.appendChild(card);}
