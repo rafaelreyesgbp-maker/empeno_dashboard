@@ -81,24 +81,268 @@ tfoot td { font-weight: 700; font-size: 13px; border-top: 2px solid #ddd; }
   .seg-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   table { font-size: 11px; min-width: 560px; }
 }
+
+/* ================================================================
+   SIIFE · Capa visual ejecutiva — Casas de Empeño
+   No modifica cálculos, fuentes de datos ni eventos del tablero.
+   ================================================================ */
+:root{
+  color-scheme:light;
+  --siife-vino:#7E163B;
+  --siife-vino-oscuro:#4A0B25;
+  --siife-vino-suave:#A22A56;
+  --siife-dorado:#D8A33C;
+  --siife-dorado-claro:#FFF2D3;
+  --siife-fondo:#F7F1EE;
+  --siife-superficie:#FFFFFF;
+  --siife-superficie-suave:#FCF9F7;
+  --siife-texto:#30252C;
+  --siife-texto-secundario:#776A72;
+  --siife-borde:#ECDDE3;
+  --siife-borde-fuerte:#DBC4CF;
+  --siife-verde:#267E60;
+  --siife-azul:#375BB5;
+  --siife-morado:#7B46B0;
+  --siife-naranja:#C99326;
+  --siife-rojo:#C83E4A;
+  --siife-sombra-suave:0 2px 6px rgba(74,11,37,.05);
+  --siife-sombra-media:0 8px 22px rgba(74,11,37,.07);
+  --siife-sombra-alta:0 14px 34px rgba(74,11,37,.10);
+}
+*{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}
+body{background:var(--siife-fondo);color:var(--siife-texto)}
+.header{
+  position:relative;background:linear-gradient(180deg,#fff 0%,#FCF9F7 100%);
+  color:var(--siife-texto);padding:19px 30px 18px;border-bottom:1px solid var(--siife-borde);
+  box-shadow:var(--siife-sombra-suave);align-items:center
+}
+.title-group{min-width:0}
+.system-line{display:flex;align-items:center;gap:9px;margin-bottom:5px}
+.system-chip{
+  display:inline-flex;align-items:center;justify-content:center;min-height:23px;padding:4px 10px;
+  border-radius:999px;background:var(--siife-vino);color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:800;letter-spacing:1.1px;box-shadow:0 5px 12px rgba(126,22,59,.18)
+}
+.system-caption{
+  color:var(--siife-vino);font-family:'Montserrat',sans-serif;font-size:10px;
+  font-weight:700;letter-spacing:.75px;text-transform:uppercase
+}
+.header h1{
+  color:var(--siife-vino-oscuro);font-family:'Montserrat',sans-serif;
+  font-size:clamp(1.1rem,1.7vw,1.42rem);font-weight:800;line-height:1.16;letter-spacing:-.35px
+}
+.header .sub{color:var(--siife-texto-secundario);font-size:12px;opacity:1;margin-top:5px}
+.header-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.mini-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;
+  background:#FFF7F9;border:1px solid var(--siife-borde);color:var(--siife-vino);
+  font-size:10px;font-weight:800;box-shadow:var(--siife-sombra-suave)
+}
+.mini-pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--siife-dorado);box-shadow:0 0 0 3px rgba(216,163,60,.14)}
+.header-right{gap:9px;justify-content:flex-end}
+.period-control{display:flex;align-items:center;gap:7px}
+.period-label{color:var(--siife-texto-secundario);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.75px}
+select.month-sel{
+  appearance:auto;-webkit-appearance:auto;min-width:112px;background:#fff;border:1px solid var(--siife-borde-fuerte);
+  color:var(--siife-vino-oscuro);padding:8px 10px;border-radius:10px;font-size:12px;font-weight:700;outline:none
+}
+select.month-sel:focus{border-color:var(--siife-vino-suave);box-shadow:0 0 0 3px rgba(126,22,59,.11)}
+select.month-sel option{background:#fff;color:var(--siife-texto)}
+.btn-refresh,.btn-hdr-exp{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:36px}
+.btn-refresh{
+  border:1px solid #C99326;background:linear-gradient(180deg,#E6B44D 0%,var(--siife-dorado) 100%);
+  color:var(--siife-vino-oscuro);padding:8px 14px;border-radius:10px;box-shadow:0 4px 10px rgba(216,163,60,.22);
+  font-size:12px;font-weight:800
+}
+.btn-refresh:hover{opacity:1;transform:translateY(-1px);filter:brightness(1.03)}
+.btn-hdr-exp{
+  background:#fff;color:var(--siife-vino);border:1px solid var(--siife-borde-fuerte);padding:7px 10px;
+  border-radius:10px;font-size:11px;font-weight:800;transition:background .2s,border-color .2s,transform .2s
+}
+.btn-hdr-exp:hover{background:#FFF7F9;border-color:var(--siife-vino-suave);transform:translateY(-1px)}
+.action-btn-icon{display:inline-flex}
+.action-btn-icon svg{width:15px;height:15px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.gold-bar{height:3px;background:linear-gradient(90deg,var(--siife-vino),var(--siife-dorado),var(--siife-vino))}
+.content{max-width:1440px;padding:22px 30px 32px}
+.status-bar{
+  background:var(--siife-superficie);border:1px solid var(--siife-borde);border-left:3px solid var(--siife-verde);
+  border-radius:12px;padding:10px 14px;margin-bottom:16px;color:var(--siife-texto-secundario);font-size:11px;
+  box-shadow:var(--siife-sombra-suave)
+}
+.status-bar.updating{border-left-color:var(--siife-dorado)}
+.status-bar.error{border-left-color:var(--siife-rojo)}
+.kpi-row{grid-template-columns:repeat(auto-fit,minmax(205px,1fr));gap:14px;margin-bottom:18px}
+.kpi-card{
+  position:relative;background:var(--siife-superficie);border:1px solid var(--siife-borde);border-top-width:3px;
+  border-radius:15px;padding:16px 70px 16px 17px;box-shadow:var(--siife-sombra-suave);overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.kpi-card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(255,255,255,0) 45%);pointer-events:none}
+.kpi-card:hover{transform:translateY(-2px);box-shadow:var(--siife-sombra-media)}
+.kpi-label{color:var(--siife-texto-secundario);font-size:10px;letter-spacing:.85px}
+.kpi-sub{color:#9A8D94;font-size:10px}
+.kpi-val{font-family:'Montserrat',sans-serif;font-size:25px;font-weight:800;letter-spacing:-.8px}
+.kpi-note{color:var(--siife-texto-secundario);font-size:11px}
+.siife-kpi-icon,.siife-seg-icon,.siife-section-icon,.siife-ytd-icon{
+  display:inline-flex;align-items:center;justify-content:center;flex-shrink:0
+}
+.siife-kpi-icon{
+  position:absolute;top:16px;right:16px;width:42px;height:42px;border-radius:14px;z-index:1;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.72),0 8px 18px rgba(74,11,37,.08);border:1px solid rgba(255,255,255,.66)
+}
+.siife-kpi-icon svg,.siife-seg-icon svg,.siife-section-icon svg,.siife-ytd-icon svg{
+  width:20px;height:20px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round
+}
+.section{
+  background:var(--siife-superficie);border:1px solid var(--siife-borde);border-radius:15px;padding:18px;
+  margin-bottom:16px;box-shadow:var(--siife-sombra-suave)
+}
+.sec-title.siife-section-heading{
+  display:flex;align-items:center;gap:12px;margin:0 0 17px;color:var(--siife-vino-oscuro);opacity:1;
+  text-transform:none;letter-spacing:0
+}
+.siife-section-icon{
+  width:38px;height:38px;border-radius:12px;background:#FBE9EF;color:var(--siife-vino)
+}
+.siife-section-icon svg{width:18px;height:18px}
+.siife-section-title{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;letter-spacing:.1px;color:var(--siife-vino-oscuro)}
+.siife-section-subtitle{font-size:11px;color:var(--siife-texto-secundario);margin-top:2px;text-transform:none;font-weight:500;letter-spacing:0}
+.progress-wrap{background:#F1E8EC;height:10px}
+.progress-fill{box-shadow:none}
+.seg-grid{grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.seg-card{
+  position:relative;border-radius:13px;padding:15px 62px 15px 15px;box-shadow:var(--siife-sombra-suave);overflow:hidden;
+  transition:transform .18s ease,box-shadow .18s ease
+}
+.seg-card:hover{transform:translateY(-2px);box-shadow:var(--siife-sombra-media)}
+.siife-seg-icon{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.75)}
+.siife-seg-icon svg{width:17px;height:17px}
+.seg-badge{font-size:10px;padding:3px 8px}
+.seg-name{font-family:'Montserrat',sans-serif;font-size:13px}
+.seg-count{color:var(--siife-texto-secundario)}
+.seg-monto{font-family:'Montserrat',sans-serif;margin-top:8px}
+.siife-ytd-card{position:relative!important;padding-right:68px!important}
+.siife-ytd-icon{position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:14px;background:#EEF0FF;color:#5C6BC0;box-shadow:var(--siife-sombra-suave)}
+.table-header{
+  align-items:center;gap:10px;background:var(--siife-superficie-suave);border:1px solid var(--siife-borde);
+  padding:10px;border-radius:12px;margin-bottom:12px
+}
+.search-wrap{position:relative;display:flex;flex:1;min-width:200px}
+.search-wrap .siife-search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);display:inline-flex;color:#92727F;pointer-events:none}
+.search-wrap .siife-search-icon svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.search-wrap .search-input{padding-left:38px}
+.search-input,.seg-filter{
+  background:#fff;border:1px solid var(--siife-borde-fuerte);color:var(--siife-texto);border-radius:10px;padding:9px 12px;font-size:12px
+}
+.search-input:focus{border-color:var(--siife-vino-suave);box-shadow:0 0 0 3px rgba(126,22,59,.10)}
+.seg-filter{min-width:160px}
+.btn-export-tbl{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(180deg,#1E8B64,#166D4E);
+  color:#fff;border:none;padding:9px 14px;border-radius:10px;font-size:12px;font-weight:800;cursor:pointer;white-space:nowrap;
+  box-shadow:0 8px 18px rgba(29,110,67,.18)
+}
+.btn-export-tbl:hover{opacity:.93;transform:translateY(-1px)}
+.btn-export-tbl .siife-btn-icon{display:inline-flex}
+.btn-export-tbl .siife-btn-icon svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.siife-table-scroll{border:1px solid var(--siife-borde);border-radius:12px;overflow:auto!important}
+table{font-size:12px}
+thead th{position:static;background:var(--siife-vino-oscuro);color:#fff;padding:11px 12px;font-family:'Montserrat',sans-serif;font-size:10px;letter-spacing:.55px}
+thead th:hover{background:var(--siife-vino)}
+tbody tr:nth-child(even){background:#FCF9F7}
+tbody tr:hover{background:#FFF3F6}
+td{padding:10px 12px;border-bottom:1px solid #F0E5E9;color:var(--siife-texto)}
+.rfc-code{color:var(--siife-vino);font-weight:700}
+tfoot tr{background:#FBF4F6!important}
+tfoot td{border-top:1px solid var(--siife-borde-fuerte)}
+.pagination{padding:14px 0 2px}
+.page-btn{border:1px solid var(--siife-borde-fuerte);border-radius:8px;background:#fff;color:var(--siife-vino-oscuro);padding:5px 10px}
+.page-btn.active{background:var(--siife-vino);color:#fff;border-color:var(--siife-vino)}
+.footer{background:var(--siife-vino-oscuro);padding:10px 30px;font-size:10px;opacity:1;color:rgba(255,255,255,.78)}
+@media print{
+  .header-right,.gold-bar,#omisos-section,.header-pills{display:none!important}
+  .header{box-shadow:none!important;border-bottom:1px solid #ddd!important}
+  body{background:#fff!important}
+  .section,.kpi-card{box-shadow:none!important}
+}
+@media(max-width:860px){
+  .header{padding:15px 18px}
+  .header-right{width:100%;justify-content:flex-start}
+  .content{padding:14px 16px 24px}
+  .footer{padding:10px 16px}
+}
+@media(max-width:640px){
+  .header{display:block}
+  .header-right{margin-top:13px}
+  .period-control{flex:1}
+  select.month-sel{flex:1;min-width:0}
+  .btn-refresh{flex:1}
+  .btn-hdr-exp{flex:1}
+  .kpi-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi-card{padding:14px 51px 14px 14px}
+  .kpi-val{font-size:21px}
+  .siife-kpi-icon{width:36px;height:36px;top:13px;right:12px;border-radius:11px}
+  .siife-kpi-icon svg{width:17px;height:17px}
+  .section{padding:14px}
+  .siife-ytd-card{padding-right:56px!important}
+  .siife-ytd-icon{width:36px;height:36px;top:13px;right:12px;border-radius:11px}
+  .header-pills{margin-top:9px}
+  .mini-pill{font-size:9px;padding:5px 8px}
+  .seg-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .seg-card{padding:13px 50px 13px 13px}
+  .siife-seg-icon{width:30px;height:30px;top:12px;right:11px;border-radius:10px}
+  .table-header{padding:8px}
+}
+
 </style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
+
 <div class="header">
-  <div>
-    <h1>AAFY &middot; Impuesto a las Casas de Empe&ntilde;o &middot; Proyecci&oacute;n de Cierre 2026</h1>
-    <div class="sub">Agencia de Administraci&oacute;n Fiscal de Yucat&aacute;n &middot; Datos actualizados autom&aacute;ticamente</div>
+  <div class="title-group">
+    <div class="system-line">
+      <span class="system-chip">SIIFE</span>
+      <span class="system-caption">Ingeniería Fiscal Estratégica</span>
+    </div>
+    <h1>Casas de Empeño · Proyección de Cierre 2026</h1>
+    <div class="sub">Seguimiento de recaudación, proyección y priorización de omisos para la toma de decisiones.</div>
+    <div class="header-pills" aria-label="Capacidades del tablero">
+      <span class="mini-pill">Proyección</span>
+      <span class="mini-pill">Análisis</span>
+      <span class="mini-pill">Priorización</span>
+      <span class="mini-pill">Seguimiento</span>
+    </div>
   </div>
   <div class="header-right">
-    <select class="month-sel" id="monthSel" onchange="switchMonth(+this.value)"></select>
-    <button class="btn-refresh" id="btnRefresh" onclick="loadFromDrive()">&#8635; Actualizar</button>
-    <button class="btn-hdr-exp" onclick="window.print()">PDF</button>
-    <button class="btn-hdr-exp" onclick="exportPNG()">PNG</button>
-    <button class="btn-hdr-exp" onclick="exportExcel()">XLS</button>
+    <div class="period-control">
+      <span class="period-label">Periodo</span>
+      <select class="month-sel" id="monthSel" onchange="switchMonth(+this.value)"></select>
+    </div>
+    <button class="btn-refresh" id="btnRefresh" onclick="loadFromDrive()">
+      <span class="action-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg></span>
+      <span>Actualizar</span>
+    </button>
+    <button class="btn-hdr-exp" onclick="window.print()">
+      <span class="action-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg></span>
+      <span>PDF</span>
+    </button>
+    <button class="btn-hdr-exp" onclick="exportPNG()">
+      <span class="action-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></span>
+      <span>PNG</span>
+    </button>
+    <button class="btn-hdr-exp" onclick="exportExcel()">
+      <span class="action-btn-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span>
+      <span>XLS</span>
+    </button>
   </div>
 </div>
 <div class="gold-bar"></div>
+
 
 <div class="content">
   <div class="status-bar" id="statusBar">
@@ -166,7 +410,7 @@ tfoot td { font-weight: 700; font-size: 13px; border-top: 2px solid #ddd; }
 </div>
 
 <div class="footer">
-  <span>AAFY - Impuesto a las Casas de Empe&ntilde;o - Proyecci&oacute;n de Cierre 2026</span>
+  <span>SIIFE · Casas de Empeño · Proyección de Cierre 2026</span>
   <span id="footerUpdated"></span>
 </div>
 
@@ -188,8 +432,8 @@ const MONTH_LABELS = {
   7:"Julio",8:"Agosto",9:"Septiembre",10:"Octubre",11:"Noviembre",12:"Diciembre"
 };
 
-let allData = {"1": {"mes_label": "Enero", "mes_num": 1, "meta": 58989, "dominant_period": 202512, "ref_months": [], "acumulado_real": 95539, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 95539, "meta_cruzada": true, "pct_acumulado": 161.96070453813422, "pct_proyeccion": 161.96070453813422, "segmentos": {}, "omisos": []}, "2": {"mes_label": "Febrero", "mes_num": 2, "meta": 58989, "dominant_period": 202601, "ref_months": [1], "acumulado_real": 66309, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 66309, "meta_cruzada": true, "pct_acumulado": 112.40909322076998, "pct_proyeccion": 112.40909322076998, "segmentos": {}, "omisos": []}, "3": {"mes_label": "Marzo", "mes_num": 3, "meta": 58989, "dominant_period": 202602, "ref_months": [1, 2], "acumulado_real": 73146, "total_omisos": 0, "total_esperado": 0, "proyeccion_cierre": 73146, "meta_cruzada": true, "pct_acumulado": 123.99938971672684, "pct_proyeccion": 123.99938971672684, "segmentos": {}, "omisos": []}, "4": {"mes_label": "Abril", "mes_num": 4, "meta": 58989, "dominant_period": 202603, "ref_months": [1, 2, 3], "acumulado_real": 76896, "total_omisos": 2, "total_esperado": 0, "proyeccion_cierre": 76896, "meta_cruzada": true, "pct_acumulado": 130.3565071454, "pct_proyeccion": 130.3565071454, "segmentos": {"alta": {"count": 2, "monto": 0, "omisos": [{"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "avg": 0, "count": 3, "nMissing": 1, "pending": ["Mar-26"]}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "avg": 0, "count": 3, "nMissing": 1, "pending": ["Mar-26"]}]}}, "omisos": [{"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "count": 3, "avg": 0, "nMissing": 1, "pending": ["Mar-26"], "seg": "alta"}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "count": 3, "avg": 0, "nMissing": 1, "pending": ["Mar-26"], "seg": "alta"}]}, "5": {"mes_label": "Mayo", "mes_num": 5, "meta": 58989, "dominant_period": 202604, "ref_months": [1, 2, 3, 4], "acumulado_real": 69874, "total_omisos": 3, "total_esperado": 128, "proyeccion_cierre": 70002, "meta_cruzada": true, "pct_acumulado": 118.45259285629524, "pct_proyeccion": 118.66958246452728, "segmentos": {"media": {"count": 2, "monto": 128, "omisos": [{"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "avg": 83, "count": 3, "nMissing": 1, "pending": ["Abr-26"]}, {"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "avg": 45, "count": 3, "nMissing": 1, "pending": ["Abr-26"]}]}, "seguimiento": {"count": 1, "monto": 0, "omisos": [{"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "avg": 0, "count": 2, "nMissing": 1, "pending": ["Abr-26"]}]}}, "omisos": [{"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "count": 3, "avg": 83, "nMissing": 1, "pending": ["Abr-26"], "seg": "media"}, {"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "count": 3, "avg": 45, "nMissing": 1, "pending": ["Abr-26"], "seg": "media"}, {"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "count": 2, "avg": 0, "nMissing": 1, "pending": ["Abr-26"], "seg": "seguimiento"}]}, "6": {"mes_label": "Junio", "mes_num": 6, "meta": 58989, "dominant_period": 202605, "ref_months": [1, 2, 3, 4, 5], "acumulado_real": 79329, "total_omisos": 5, "total_esperado": 999, "proyeccion_cierre": 80328, "meta_cruzada": true, "pct_acumulado": 134.4810049331231, "pct_proyeccion": 136.17454101612165, "segmentos": {"media": {"count": 3, "monto": 999, "omisos": [{"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "avg": 999, "count": 4, "nMissing": 1, "pending": ["May-26"]}, {"rfc": "MUME501107A77", "contrib": "MARIA ELIZABETH MUÑOZ MONTERO", "avg": 0, "count": 4, "nMissing": 1, "pending": ["May-26"]}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "avg": 0, "count": 4, "nMissing": 1, "pending": ["May-26"]}]}, "alta": {"count": 1, "monto": 0, "omisos": [{"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "avg": 0, "count": 5, "nMissing": 1, "pending": ["May-26"]}]}, "seguimiento": {"count": 1, "monto": 0, "omisos": [{"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "avg": 0, "count": 2, "nMissing": 2, "pending": ["May-26", "Abr-26"]}]}}, "omisos": [{"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "count": 4, "avg": 999, "nMissing": 1, "pending": ["May-26"], "seg": "media"}, {"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "count": 5, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "alta"}, {"rfc": "MUME501107A77", "contrib": "MARIA ELIZABETH MUÑOZ MONTERO", "count": 4, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "media"}, {"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "count": 2, "avg": 0, "nMissing": 2, "pending": ["May-26", "Abr-26"], "seg": "seguimiento"}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "count": 4, "avg": 0, "nMissing": 1, "pending": ["May-26"], "seg": "media"}]}, "7": {"mes_label": "Julio", "mes_num": 7, "meta": 58989, "dominant_period": 202606, "ref_months": [1, 2, 3, 4, 5, 6], "acumulado_real": 0, "total_omisos": 53, "total_esperado": 72080, "proyeccion_cierre": 72080, "meta_cruzada": true, "pct_acumulado": 0.0, "pct_proyeccion": 122.19227313566935, "segmentos": {"alta": {"count": 43, "monto": 69940, "omisos": [{"rfc": "EMM060921EN5", "contrib": "EZPAWN MANAGEMENT MEXICO S DE RL DE CV", "avg": 19490, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "DAP100329TR6", "contrib": "DANDO APOYO S DE RL DE CV", "avg": 11492, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PME100111J68", "contrib": "PRENDAS MEXICANAS S DE RL DE CV", "avg": 8535, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PBA210412IJ8", "contrib": "PLO DEL BAJIO S DE RL DE CV", "avg": 7842, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "GOMJ820106U98", "contrib": "JESUS GASPAR GONZALEZ MOO", "avg": 5964, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "LASG571218SM6", "contrib": "GENY JUDIT LARA SOSA", "avg": 4410, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "VEHM6109015M7", "contrib": "MARLENE MINEYRA VELA HERRERA", "avg": 1908, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SEM061220T56", "contrib": "SOLUCIONES ECONOMICAS DE MEXICO SA DE CV", "avg": 1696, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CEP130715V24", "contrib": "CASA DE EMPEÑOS PRESTA EXPRESS DE YUCATAN SA DE CV", "avg": 1642, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "ISS0804221P7", "contrib": "IMPULSORA DE SERVICIOS DEL SURESTE SA DE CV", "avg": 1384, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CEG1307151P6", "contrib": "CASAS DE EMPEÑOS GAF SA DE CV", "avg": 1221, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PSC130716TD0", "contrib": "PRESTAMOS Y SOLUCIONES DEL CONEJITO S.A DE C.V", "avg": 1144, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "EMU100406QG4", "contrib": "ELECTRONICA MUTUA S DE RL DE CV", "avg": 1120, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "GORM8809296Y4", "contrib": "MIGUEL SALVADOR GONZALEZ RAMIREZ", "avg": 350, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CICS940823R9A", "contrib": "SHIRLEY SARAI CHIM CHUC", "avg": 317, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "NAVE6112237H9", "contrib": "EVELIN DE JESUS NAVARRETE VAZQUEZ", "avg": 241, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SIRD8603197M1", "contrib": "JOSE DOMINGO SIERRA RAMIREZ", "avg": 227, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CACS901228R19", "contrib": "SULEM LIEZET CAAMAL CAAMAL", "avg": 175, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "NARM900427UZA", "contrib": "MANUEL ALEJANDRO NARVAEZ DEL RIO", "avg": 152, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CICF700103DI4", "contrib": "FRANGEL CHIM CHAN", "avg": 122, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "VACL700528DR3", "contrib": "LUIS MANUEL VALENCIA CABRAL", "avg": 96, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "NABM6603265Q7", "contrib": "MANUEL FRANCISCO NARVAEZ BRICEÑO", "avg": 57, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "VASJ721002A91", "contrib": "JUAN TEODORO VARGUEZ SOBERANIS", "avg": 56, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CUGP7712237Y6", "contrib": "PAULA ALEJANDRA CRUZ GODOY", "avg": 56, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PEMM661119EK4", "contrib": "MAGALI VICTORIA PECH MAY", "avg": 32, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CUCC7112081W8", "contrib": "MARIA CONCEPCION CHUC CHAY", "avg": 30, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "HUPE870113QS0", "contrib": "EDGAR GENARO HUCHIN PECH", "avg": 24, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CACX800811IH3", "contrib": "AUREA JOSEFINA CASTILLO CAAMAL", "avg": 20, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SALJ861216FK6", "contrib": "JENNYFER SANSORES LEAL", "avg": 15, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SALS8802168X0", "contrib": "STEPHANIE SANSORES LEAL", "avg": 15, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "LESL6307065N2", "contrib": "LORENA ROXANA LEAL SALAS", "avg": 15, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SAJG630225G35", "contrib": "GABRIEL ANTONIO SANSORES JIMENEZ", "avg": 15, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "SALK921123PD2", "contrib": "KEVIN SANSORES LEAL", "avg": 15, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CACJ8312242V5", "contrib": "MARIA JESUS CASTILLO CAAMAL", "avg": 14, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PIBE010907IS6", "contrib": "EUNICE YOLANDA PISTE BURGOS", "avg": 12, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "KOCD7303052S1", "contrib": "DALIA RUBI KOYOC CHAN", "avg": 12, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "BUSL680930DS3", "contrib": "LUCIA GUADALUPE BURGOS SOLIS", "avg": 12, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "COCJ770606GW7", "contrib": "JOAQUIN JAVIER COLLI CACH", "avg": 12, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "LOPL860601CQ1", "contrib": "LUIS ALFREDO LOZANO POOT", "avg": 0, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "CIAA870324DP2", "contrib": "ABEL DE JESUS CHI AVILA", "avg": 0, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "ROPM761111NI0", "contrib": "MARTIN ISIDRO RODRIGUEZ PEREZ", "avg": 0, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "BFE171012A44", "contrib": "LA BUENA FE EMPEÑOS S DE RL DE CV", "avg": 0, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PEEA880205Q2A", "contrib": "ARTURO ESTEBAN PEREZ ESTRADA", "avg": 0, "count": 6, "nMissing": 1, "pending": ["Jun-26"]}]}, "media": {"count": 8, "monto": 2140, "omisos": [{"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "avg": 1998, "count": 4, "nMissing": 2, "pending": ["Jun-26", "May-26"]}, {"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "avg": 89, "count": 4, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "avg": 53, "count": 4, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "avg": 0, "count": 5, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "POGC7312047F4", "contrib": "CLAUDIA MARCELA PORTE PETIT GONZALEZ", "avg": 0, "count": 5, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "BEX140303964", "contrib": "BIENESTAR EXPRESO SA DE CV", "avg": 0, "count": 4, "nMissing": 1, "pending": ["Jun-26"]}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "avg": 0, "count": 4, "nMissing": 2, "pending": ["Jun-26", "May-26"]}, {"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "avg": 0, "count": 5, "nMissing": 2, "pending": ["Jun-26", "May-26"]}]}, "seguimiento": {"count": 1, "monto": 0, "omisos": [{"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "avg": 0, "count": 2, "nMissing": 3, "pending": ["Jun-26", "May-26", "Abr-26"]}]}, "baja": {"count": 1, "monto": 0, "omisos": [{"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "avg": 0, "count": 3, "nMissing": 1, "pending": ["Jun-26"]}]}}, "omisos": [{"rfc": "EMM060921EN5", "contrib": "EZPAWN MANAGEMENT MEXICO S DE RL DE CV", "count": 6, "avg": 19490, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "DAP100329TR6", "contrib": "DANDO APOYO S DE RL DE CV", "count": 6, "avg": 11492, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PME100111J68", "contrib": "PRENDAS MEXICANAS S DE RL DE CV", "count": 6, "avg": 8535, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PBA210412IJ8", "contrib": "PLO DEL BAJIO S DE RL DE CV", "count": 6, "avg": 7842, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "GOMJ820106U98", "contrib": "JESUS GASPAR GONZALEZ MOO", "count": 6, "avg": 5964, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "LASG571218SM6", "contrib": "GENY JUDIT LARA SOSA", "count": 6, "avg": 4410, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "KAYJ780509TY1", "contrib": "JUAN CARLOS KANTUN YAM", "count": 4, "avg": 1998, "nMissing": 2, "pending": ["Jun-26", "May-26"], "seg": "media"}, {"rfc": "VEHM6109015M7", "contrib": "MARLENE MINEYRA VELA HERRERA", "count": 6, "avg": 1908, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SEM061220T56", "contrib": "SOLUCIONES ECONOMICAS DE MEXICO SA DE CV", "count": 6, "avg": 1696, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CEP130715V24", "contrib": "CASA DE EMPEÑOS PRESTA EXPRESS DE YUCATAN SA DE CV", "count": 6, "avg": 1642, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "ISS0804221P7", "contrib": "IMPULSORA DE SERVICIOS DEL SURESTE SA DE CV", "count": 6, "avg": 1384, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CEG1307151P6", "contrib": "CASAS DE EMPEÑOS GAF SA DE CV", "count": 6, "avg": 1221, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PSC130716TD0", "contrib": "PRESTAMOS Y SOLUCIONES DEL CONEJITO S.A DE C.V", "count": 6, "avg": 1144, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "EMU100406QG4", "contrib": "ELECTRONICA MUTUA S DE RL DE CV", "count": 6, "avg": 1120, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "GORM8809296Y4", "contrib": "MIGUEL SALVADOR GONZALEZ RAMIREZ", "count": 6, "avg": 350, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CICS940823R9A", "contrib": "SHIRLEY SARAI CHIM CHUC", "count": 6, "avg": 317, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "NAVE6112237H9", "contrib": "EVELIN DE JESUS NAVARRETE VAZQUEZ", "count": 6, "avg": 241, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SIRD8603197M1", "contrib": "JOSE DOMINGO SIERRA RAMIREZ", "count": 6, "avg": 227, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CACS901228R19", "contrib": "SULEM LIEZET CAAMAL CAAMAL", "count": 6, "avg": 175, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "NARM900427UZA", "contrib": "MANUEL ALEJANDRO NARVAEZ DEL RIO", "count": 6, "avg": 152, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CICF700103DI4", "contrib": "FRANGEL CHIM CHAN", "count": 6, "avg": 122, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "VACL700528DR3", "contrib": "LUIS MANUEL VALENCIA CABRAL", "count": 6, "avg": 96, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "EARC8407231Z6", "contrib": "CARLOS GUSTAVO ESCALANTE REGUERA", "count": 4, "avg": 89, "nMissing": 1, "pending": ["Jun-26"], "seg": "media"}, {"rfc": "NABM6603265Q7", "contrib": "MANUEL FRANCISCO NARVAEZ BRICEÑO", "count": 6, "avg": 57, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "VASJ721002A91", "contrib": "JUAN TEODORO VARGUEZ SOBERANIS", "count": 6, "avg": 56, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CUGP7712237Y6", "contrib": "PAULA ALEJANDRA CRUZ GODOY", "count": 6, "avg": 56, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "EARC870919C87", "contrib": "CARMEN MARIA ESCALANTE REGUERA", "count": 4, "avg": 53, "nMissing": 1, "pending": ["Jun-26"], "seg": "media"}, {"rfc": "PEMM661119EK4", "contrib": "MAGALI VICTORIA PECH MAY", "count": 6, "avg": 32, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CUCC7112081W8", "contrib": "MARIA CONCEPCION CHUC CHAY", "count": 6, "avg": 30, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "HUPE870113QS0", "contrib": "EDGAR GENARO HUCHIN PECH", "count": 6, "avg": 24, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CACX800811IH3", "contrib": "AUREA JOSEFINA CASTILLO CAAMAL", "count": 6, "avg": 20, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SALJ861216FK6", "contrib": "JENNYFER SANSORES LEAL", "count": 6, "avg": 15, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SALS8802168X0", "contrib": "STEPHANIE SANSORES LEAL", "count": 6, "avg": 15, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "LESL6307065N2", "contrib": "LORENA ROXANA LEAL SALAS", "count": 6, "avg": 15, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SAJG630225G35", "contrib": "GABRIEL ANTONIO SANSORES JIMENEZ", "count": 6, "avg": 15, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "SALK921123PD2", "contrib": "KEVIN SANSORES LEAL", "count": 6, "avg": 15, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CACJ8312242V5", "contrib": "MARIA JESUS CASTILLO CAAMAL", "count": 6, "avg": 14, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PIBE010907IS6", "contrib": "EUNICE YOLANDA PISTE BURGOS", "count": 6, "avg": 12, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "KOCD7303052S1", "contrib": "DALIA RUBI KOYOC CHAN", "count": 6, "avg": 12, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "BUSL680930DS3", "contrib": "LUCIA GUADALUPE BURGOS SOLIS", "count": 6, "avg": 12, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "COCJ770606GW7", "contrib": "JOAQUIN JAVIER COLLI CACH", "count": 6, "avg": 12, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PEME631227922", "contrib": "JOSE MELCHOR PEREZ", "count": 5, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "media"}, {"rfc": "POGC7312047F4", "contrib": "CLAUDIA MARCELA PORTE PETIT GONZALEZ", "count": 5, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "media"}, {"rfc": "PESJ020727299", "contrib": "JOHAN ORLANDO PECH SANSORES", "count": 2, "avg": 0, "nMissing": 3, "pending": ["Jun-26", "May-26", "Abr-26"], "seg": "seguimiento"}, {"rfc": "LOPL860601CQ1", "contrib": "LUIS ALFREDO LOZANO POOT", "count": 6, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "CIAA870324DP2", "contrib": "ABEL DE JESUS CHI AVILA", "count": 6, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "BEX140303964", "contrib": "BIENESTAR EXPRESO SA DE CV", "count": 4, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "media"}, {"rfc": "PDI0503176U0", "contrib": "PRESTA DINERO SA DE CV", "count": 4, "avg": 0, "nMissing": 2, "pending": ["Jun-26", "May-26"], "seg": "media"}, {"rfc": "ROPM761111NI0", "contrib": "MARTIN ISIDRO RODRIGUEZ PEREZ", "count": 6, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "RCM1205077A5", "contrib": "RECUPERACION Y CONSIGNACION DE METALES S DE RL DE CV", "count": 5, "avg": 0, "nMissing": 2, "pending": ["Jun-26", "May-26"], "seg": "media"}, {"rfc": "BFE171012A44", "contrib": "LA BUENA FE EMPEÑOS S DE RL DE CV", "count": 6, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "PEEA880205Q2A", "contrib": "ARTURO ESTEBAN PEREZ ESTRADA", "count": 6, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "alta"}, {"rfc": "COSL690708K76", "contrib": "LAURA ISABEL COB SABIDO", "count": 3, "avg": 0, "nMissing": 1, "pending": ["Jun-26"], "seg": "baja"}]}};
-var lastUpdated = '04/07/2026 07:31';
+let allData = {};
+var lastUpdated = '';
 const PREV_YEAR_TOTALS = [95691,65387,47175,66063,57193,63515,60756,65347,57719,67957,70465,74638];
 let currentMonth=null, allOmisos=[], currentPage=1;
 const PAGE_SIZE=50;
@@ -568,5 +812,110 @@ function exportPNG(){html2canvas(document.querySelector('.content'),{scale:2,bac
   }
 })();
 </script>
+
+<script>
+/* SIIFE visual decorator: presentation only; original dashboard logic remains intact. */
+(function(){
+  const ICONS = {
+    money:'<svg viewBox="0 0 24 24"><path d="M2 7h20v10H2z"/><path d="M12 9.5c1.9 0 3.5 1.1 3.5 2.5s-1.6 2.5-3.5 2.5-3.5-1.1-3.5-2.5 1.6-2.5 3.5-2.5Z"/><path d="M6 7v10"/><path d="M18 7v10"/></svg>',
+    target:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>',
+    trend:'<svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-8"/><path d="M14 7h6v6"/></svg>',
+    users:'<svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 4.13a3 3 0 0 1 0 5.75"/></svg>',
+    diamond:'<svg viewBox="0 0 24 24"><path d="m12 3 9 8-9 10L3 11l9-8z"/><path d="m3 11 9 10 9-10"/><path d="m8 3 4 8 4-8"/></svg>',
+    layers:'<svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 16 9 5 9-5"/></svg>',
+    chart:'<svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m8 14 3-3 2 2 5-6"/></svg>',
+    file:'<svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>',
+    search:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>',
+    download:'<svg viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>',
+    briefcase:'<svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>'
+  };
+  function svg(name){ return ICONS[name] || ICONS.chart; }
+  function bubble(cls, name, bg, color){
+    return '<span class="'+cls+'" style="background:'+bg+';color:'+color+'">'+svg(name)+'</span>';
+  }
+  function kpiStyle(label){
+    const v=(label||'').toLowerCase();
+    if(v.includes('acumulado')) return {i:'money',bg:'#E9F7F1',c:'#267E60'};
+    if(v.includes('meta')) return {i:'target',bg:'#FFF4DE',c:'#C99326'};
+    if(v.includes('proye')) return {i:'trend',bg:'#FBE9EF',c:'#7E163B'};
+    if(v.includes('omiso')) return {i:'users',bg:'#FFF1F1',c:'#C83E4A'};
+    return {i:'diamond',bg:'#FFF2D3',c:'#A66A00'};
+  }
+  function segStyle(label){
+    const v=(label||'').toLowerCase();
+    if(v.includes('alta')) return {i:'target',bg:'#FDEBDC',c:'#A95516'};
+    if(v.includes('media')) return {i:'layers',bg:'#FFF4DE',c:'#A66A00'};
+    if(v.includes('baja')) return {i:'chart',bg:'#EEF0FF',c:'#5C6BC0'};
+    return {i:'search',bg:'#E9F7F1',c:'#267E60'};
+  }
+  function decorateKpis(){
+    document.querySelectorAll('.kpi-row > .kpi-card').forEach(card=>{
+      if(card.querySelector('.siife-kpi-icon')) return;
+      const label=card.querySelector('.kpi-label')?.textContent || '';
+      const st=kpiStyle(label);
+      card.insertAdjacentHTML('afterbegin', bubble('siife-kpi-icon',st.i,st.bg,st.c));
+    });
+    const ytd=document.querySelector('#ytdCard > .kpi-card');
+    if(ytd && !ytd.querySelector('.siife-ytd-icon')){
+      ytd.classList.add('siife-ytd-card');
+      ytd.insertAdjacentHTML('afterbegin',bubble('siife-ytd-icon','briefcase','#FFF2D3','#A66A00'));
+    }
+  }
+  function decorateSections(){
+    document.querySelectorAll('.section').forEach(sec=>{
+      const el=sec.querySelector('.sec-title');
+      if(!el || el.dataset.siifeDecorated) return;
+      const raw=(el.textContent||'').trim();
+      const l=raw.toLowerCase();
+      let icon='chart',bg='#FBE9EF',color='#7E163B',sub='Información clave para la toma de decisiones.';
+      if(l.includes('avance')){icon='chart';bg='#FBE9EF';color='#7E163B';sub='Recaudación real y proyección de cierre.'}
+      else if(l.includes('segment')){icon='layers';bg='#EEF0FF';color='#5C6BC0';sub='Priorización para seguimiento operativo.'}
+      else if(l.includes('detalle')){icon='file';bg='#FFF4DE';color='#A66A00';sub='Consulta, búsqueda y exportación de omisos.'}
+      el.dataset.siifeDecorated='1';
+      el.classList.add('siife-section-heading');
+      el.innerHTML=bubble('siife-section-icon',icon,bg,color)+'<div><div class="siife-section-title">'+raw+'</div><div class="siife-section-subtitle">'+sub+'</div></div>';
+    });
+  }
+  function decorateSegments(){
+    document.querySelectorAll('#segGrid .seg-card').forEach(card=>{
+      if(card.querySelector('.siife-seg-icon')) return;
+      const st=segStyle(card.querySelector('.seg-name')?.textContent || '');
+      card.insertAdjacentHTML('afterbegin',bubble('siife-seg-icon',st.i,st.bg,st.c));
+    });
+  }
+  function decorateTable(){
+    const header=document.querySelector('#omisos-section .table-header');
+    const input=document.getElementById('searchInput');
+    if(header && input && !input.closest('.search-wrap')){
+      const wrap=document.createElement('div');
+      wrap.className='search-wrap';
+      wrap.innerHTML='<span class="siife-search-icon">'+svg('search')+'</span>';
+      input.parentNode.insertBefore(wrap,input);
+      wrap.appendChild(input);
+    }
+    const exp=document.querySelector('#omisos-section .btn-export-tbl');
+    if(exp && !exp.querySelector('.siife-btn-icon')){
+      const original=exp.textContent.trim().replace(/^↓\s*/,'');
+      exp.innerHTML='<span class="siife-btn-icon">'+svg('download')+'</span><span>'+original+'</span>';
+    }
+    const table=document.querySelector('#omisos-section table');
+    if(table){
+      const scroller=table.parentElement;
+      if(scroller) scroller.classList.add('siife-table-scroll');
+    }
+  }
+  function decorate(){ decorateKpis(); decorateSections(); decorateSegments(); decorateTable(); }
+  let queued=false;
+  function schedule(){
+    if(queued) return;
+    queued=true;
+    requestAnimationFrame(()=>{queued=false;decorate();});
+  }
+  schedule();
+  const observer=new MutationObserver(schedule);
+  observer.observe(document.body,{childList:true,subtree:true});
+})();
+</script>
+
 </body>
 </html>
